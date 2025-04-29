@@ -1,0 +1,105 @@
+04.07 5:37 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Tech Attendance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <header>
+            <h1>Student Attendance</h1>
+        </header>
+        <main>
+            <section id="login-section">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <label for="username">Mobile Number:</label>
+                    <input type="text" id="username" placeholder="Enter your mobile number">
+                </div>
+                <button onclick="sendOTP()">Send OTP</button>
+                <p id="login-error" class="error-message"></p>
+            </section>
+
+            <section id="otp-section" style="display: none;">
+                <h2>Verify OTP</h2>
+                <p id="otp-sent-message" style="margin-bottom: 10px;">OTP sent to your mobile number.</p>
+                <div class="input-group">
+                    <label for="otp">Enter OTP:</label>
+                    <input type="text" id="otp" placeholder="Enter the OTP">
+                </div>
+                <button onclick="verifyOTP()">Verify OTP</button>
+                <p id="otp-error" class="error-message"></p>
+                <button onclick="goBackToLogin()" class="secondary-button">Back to Login</button>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 B.Tech Attendance Tracker</p>
+        </footer>
+    </div>
+
+    <div id="main-container" style="display: none;">
+        <header>
+            <h1 id="welcome-message">Welcome, Student!</h1>
+        </header>
+        <main>
+            <section id="add-subject">
+                <h2>Add New Subject</h2>
+                <div class="input-group">
+                    <label for="subject-name">Subject Name:</label>
+                    <input type="text" id="subject-name" placeholder="Enter subject name">
+                </div>
+                <button onclick="addSubject()">Add Subject</button>
+            </section>
+
+            <section id="attendance-entry">
+                <h2>Enter Attendance Details</h2>
+                <div id="subjects-list">
+                    </div>
+                <button onclick="calculateAttendance()">Calculate Attendance</button>
+            </section>
+
+            <section id="attendance-results">
+                <h2>Attendance Report</h2>
+                <table id="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Total Classes</th>
+                            <th>Attended Classes</th>
+                            <th>Attendance (%)</th>
+                            <th>Status</th>
+                            <th>Subject Safe?</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendance-data">
+                        </tbody>
+                </table>
+                <div id="overall-report" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                    <h3>Overall Consolidated Report</h3>
+                    <p>Total Classes Held: <span id="overall-total-held">0</span></p>
+                    <p>Total Classes Attended: <span id="overall-total-attended">0</span></p>
+                    <p>Overall Attendance: <span id="overall-percentage">0.00%</span></p>
+                    <p id="overall-status"></p>
+                </div>
+                <div id="bunk-info" style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                    <h3>Bunking and Attendance Info</h3>
+                    <p id="can-bunk"></p>
+                    <p id="days-attended"></p>
+                </div>
+                <p class="note">Minimum required attendance: 75%</p>
+                <p class="note"><span class="likely-detained-text">Likely Detained:</span> Attendance between 65% and 75%</p>
+                <button onclick="printReport()">Print Report</button>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 B.Tech Attendance Tracker</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
